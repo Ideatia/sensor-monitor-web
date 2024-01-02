@@ -12,16 +12,36 @@ const DASHBOARD: AppRouteRecordRaw = {
     order: 0,
   },
   children: [
-    // {
-    //   path: 'temperature-daily',
-    //   name: 'TemperatureDailyReport',
-    //   component: () => import('@/views/reports/temperature-daily/index.vue'),
-    //   meta: {
-    //     locale: '温湿度日报表',
-    //     requiresAuth: true,
-    //     permissions: ['*'],
-    //   },
-    // },
+    {
+      path: 'daily-report',
+      name: 'DailyReport',
+      component: () => import('@/views/reports/date-report/index.vue'),
+      meta: {
+        locale: '日报表',
+        requiresAuth: true,
+        permissions: ['*'],
+      },
+    },
+    {
+      path: 'Monthly-report',
+      name: 'MonthlyReport',
+      component: () => import('@/views/reports/date-report/index.vue'),
+      meta: {
+        locale: '月报表',
+        requiresAuth: true,
+        permissions: ['*'],
+      },
+    },
+    {
+      path: 'yearly-report',
+      name: 'YearlyReport',
+      component: () => import('@/views/reports/date-report/index.vue'),
+      meta: {
+        locale: '年报表',
+        requiresAuth: true,
+        permissions: ['*'],
+      },
+    },
   ],
 };
 

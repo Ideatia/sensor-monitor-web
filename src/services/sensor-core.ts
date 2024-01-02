@@ -594,8 +594,10 @@ export class DeviceService {
    */
   static deleteDevice(
     params: {
-      /** input */
-      input: DeleteDeviceInputDto;
+      /** 设备id */
+      deviceId?: number;
+      /** 区域节点 */
+      nodeId?: number;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -608,8 +610,12 @@ export class DeviceService {
         url,
         options,
       );
+      configs.params = {
+        deviceId: params['deviceId'],
+        nodeId: params['nodeId'],
+      };
 
-      let data = params['input'];
+      let data = null;
 
       configs.data = data;
 
@@ -636,6 +642,80 @@ export class DeviceService {
         url,
         options,
       );
+
+      /** 适配ios13，get请求不允许带body */
+
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   * 从物联设备处，获取到设备的链路指标数据，包括：上行链路、下行链路、RSSI和SNR等
+   */
+  static getDeviceLinkMetrics(
+    params: {
+      /** 聚合的维度 */
+      aggregation?: string;
+      /** 设备的物联ID */
+      devEui?: string;
+      /** 结束时间 */
+      endTime?: string;
+      /** 开始时间 */
+      startTime?: string;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<DeviceLinkMetricsResponseDto> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/device/getDeviceLinkMetrics';
+
+      const configs: IRequestConfig = getConfigs(
+        'get',
+        'application/json',
+        url,
+        options,
+      );
+      configs.params = {
+        aggregation: params['aggregation'],
+        devEui: params['devEui'],
+        endTime: params['endTime'],
+        startTime: params['startTime'],
+      };
+
+      /** 适配ios13，get请求不允许带body */
+
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   * 从物联设备处，获取到设备的遥测数据
+   */
+  static getDeviceMetrics(
+    params: {
+      /** 聚合的维度 */
+      aggregation?: string;
+      /** 设备的物联ID */
+      devEui?: string;
+      /** 结束时间 */
+      endTime?: string;
+      /** 开始时间 */
+      startTime?: string;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<DeviceMetricResponseDto> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/device/getDeviceMetrics';
+
+      const configs: IRequestConfig = getConfigs(
+        'get',
+        'application/json',
+        url,
+        options,
+      );
+      configs.params = {
+        aggregation: params['aggregation'],
+        devEui: params['devEui'],
+        endTime: params['endTime'],
+        startTime: params['startTime'],
+      };
 
       /** 适配ios13，get请求不允许带body */
 
@@ -747,13 +827,14 @@ export class DeviceAreaService {
    */
   static deleteDeviceArea(
     params: {
-      /** input */
-      input: EntityDto;
+      /** areaId */
+      areaId: number;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
     return new Promise((resolve, reject) => {
-      let url = basePath + '/deviceArea/deleteDeviceArea';
+      let url = basePath + '/deviceArea/deleteDeviceArea/{areaId}';
+      url = url.replace('{areaId}', params['areaId'] + '');
 
       const configs: IRequestConfig = getConfigs(
         'delete',
@@ -762,7 +843,7 @@ export class DeviceAreaService {
         options,
       );
 
-      let data = params['input'];
+      let data = null;
 
       configs.data = data;
 
@@ -840,6 +921,35 @@ export class DeviceAreaService {
       let data = params['input'];
 
       configs.data = data;
+
+      axios(configs, resolve, reject);
+    });
+  }
+}
+
+export class DeviceMetricDataService {
+  /**
+   * 获取到设备遥测的历史数据
+   */
+  static getDeviceMetricListData(
+    params: {
+      /**  */
+      devEui?: string;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<DeviceMetricListDataDto[]> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/deviceMetricData/getDeviceMetricListData';
+
+      const configs: IRequestConfig = getConfigs(
+        'get',
+        'application/json',
+        url,
+        options,
+      );
+      configs.params = { devEui: params['devEui'] };
+
+      /** 适配ios13，get请求不允许带body */
 
       axios(configs, resolve, reject);
     });
@@ -930,10 +1040,10 @@ export interface ChirpStackDeviceResponseDataDto {
   skipFcntCheck?: boolean;
 
   /**  */
-  tags?: ChirpStackDeviceTagsDto;
+  tags?: object;
 
   /**  */
-  variables?: ChirpStackDeviceVariableDto;
+  variables?: object;
 }
 
 export interface ChirpStackDeviceStatusDto {
@@ -945,16 +1055,6 @@ export interface ChirpStackDeviceStatusDto {
 
   /**  */
   margin?: number;
-}
-
-export interface ChirpStackDeviceTagsDto {
-  /**  */
-  additionalTagList?: string[];
-}
-
-export interface ChirpStackDeviceVariableDto {
-  /**  */
-  additionalVariableList?: string[];
 }
 
 export interface CreateAndUpdateDeviceOtaaKeyInputDto {
@@ -1027,14 +1127,6 @@ export interface CreateDeviceQueueItemInputDto {
   queueItem?: CreateDeviceQueueItemDataDto;
 }
 
-export interface DeleteDeviceInputDto {
-  /** 设备id */
-  deviceId?: number;
-
-  /** 区域节点 */
-  nodeId?: number;
-}
-
 export interface DeviceAreaDto {
   /** 区域名称 */
   areaName?: string;
@@ -1082,14 +1174,14 @@ export interface DeviceDetailDto {
   /** 设备的模板文件名称 */
   deviceProfileName?: string;
 
-  /** 设备类型显示名 */
-  deviceTypeDisplayName?: string;
-
   /** id */
   id?: number;
 
   /** 设备是否禁用,默认是false，表示不禁用 */
   isDisabled?: boolean;
+
+  /** 设备最新的遥测数据 */
+  latestMetricDataList?: DeviceLatestMetricDataDto[];
 
   /** 设备名称 */
   name?: string;
@@ -1153,6 +1245,20 @@ export interface DeviceKeysInfoDto {
 
   /**  */
   nwkKey?: string;
+}
+
+export interface DeviceLatestMetricDataDto {
+  /** 设备的物联ID */
+  devEui?: string;
+
+  /** 设备遥测属性名称 */
+  key?: string;
+
+  /** 设备遥测值上报的最新时间 */
+  time?: Date;
+
+  /** 设备最新的遥测数据值 */
+  value?: number;
 }
 
 export interface DeviceLinkMetricRxPacketsPerDrDto {
@@ -1266,18 +1372,26 @@ export interface DeviceListDto {
   /** 设备的物联ID */
   devEui?: string;
 
+  /** 设备的模板ID */
+  deviceProfileId?: string;
+
+  /** 设备的模板文件名称 */
+  deviceProfileName?: string;
+
   /** id */
   id?: number;
+
+  /** 设备最新的遥测数据 */
+  latestMetricDataList?: DeviceLatestMetricDataDto[];
 
   /** 设备名称 */
   name?: string;
 
   /** 设备是否在线，true表示在线 */
   online?: boolean;
-
-  /** 对应的设备配置模板 name */
-  profileName?: string;
 }
+
+export interface DeviceMetricListDataDto {}
 
 export interface DeviceMetricPropertyDataDto {
   /**  */
@@ -1302,8 +1416,11 @@ export interface DeviceMetricPropertyDataItemDto {
 }
 
 export interface DeviceMetricResponseDto {
-  /** 遥测的相关数据 */
+  /** 遥测的相关遥测数据 */
   metrics?: object;
+
+  /** 遥测的相关额外信息 */
+  states?: object;
 }
 
 export interface DeviceOtaaKeyInfoDto {
@@ -1523,6 +1640,14 @@ export interface DeviceProfileMeasurementsDto {
   name?: string;
 }
 
+export interface DeviceStatesPropertyDataDto {
+  /**  */
+  name?: string;
+
+  /**  */
+  value?: string;
+}
+
 export interface DownLinkDeviceQueueDataDto {
   /**  */
   confirmed?: boolean;
@@ -1547,11 +1672,6 @@ export interface DownLinkDeviceQueueDataDto {
 
   /**  */
   pending?: boolean;
-}
-
-export interface EntityDto {
-  /** id */
-  id?: number;
 }
 
 export interface EnumOutputDto {
