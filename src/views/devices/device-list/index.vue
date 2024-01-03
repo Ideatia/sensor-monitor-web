@@ -64,10 +64,10 @@
         :bordered="false"
         @page-change="onPageChange"
       >
-        <template #online="{ record }">
-          <span v-if="!record.online" class="circle"></span>
+        <template #isDisabled="{ record }">
+          <span v-if="record.isDisabled" class="circle"></span>
           <span v-else class="circle pass"></span>
-          {{ record.online ? '在线' : '离线' }}
+          {{ record.isDisabled ? '禁用' : '启用' }}
         </template>
         <template #operations="{ record }">
           <a-button type="text" size="small" @click="onView(record)">
@@ -198,10 +198,15 @@
       title: 'EUI',
       dataIndex: 'devEui',
     },
+    // {
+    //   title: '状态',
+    //   dataIndex: 'online',
+    //   slotName: 'online',
+    // },
     {
       title: '状态',
-      dataIndex: 'online',
-      slotName: 'online',
+      dataIndex: 'isDisabled',
+      slotName: 'isDisabled',
     },
     {
       title: '操作',

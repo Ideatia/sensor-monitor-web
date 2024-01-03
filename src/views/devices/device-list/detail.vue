@@ -109,7 +109,7 @@
   import { useRoute, useRouter } from 'vue-router';
   import {
     DeviceDetailDto,
-    DeviceFieldDto,
+    DeviceLatestMetricDataDto,
     DeviceService,
   } from '@/services/sensor-core';
   import { computed, onMounted, ref } from 'vue';
@@ -137,20 +137,20 @@
     return [
       {
         label: '设备名称',
-        value: formData.value.name,
+        value: formData.value.name || '--',
       },
       {
         label: '设备描述',
-        value: formData.value.description,
+        value: formData.value.description || '--',
       },
 
       {
         label: '设备类型',
-        value: formData.value.deviceProfileName,
+        value: formData.value.deviceProfileName || '--',
       },
       {
         label: 'EUI',
-        value: formData.value.devEui,
+        value: formData.value.devEui || '--',
       },
       {
         label: '设备状态',
@@ -179,14 +179,14 @@
     ];
   });
 
-  const deviceFieldList = computed<DeviceFieldDto[]>(() => {
-    return formData.value.deviceFieldList || [];
+  const deviceFieldList = computed<DeviceLatestMetricDataDto[]>(() => {
+    return formData.value.latestMetricDataList || [];
   });
 
   const filedListColumns = [
     {
       title: '属性名称',
-      dataIndex: 'fieldName',
+      dataIndex: 'key',
     },
     {
       title: '描述',
