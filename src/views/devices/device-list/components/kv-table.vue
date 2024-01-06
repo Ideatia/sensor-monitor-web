@@ -8,14 +8,14 @@
             <a-col :span="12">
               <a-form-item field="key" label="设备属性">
                 <a-select
-                  v-model="searchModel.key"
+                  v-model="searchModel.deviceFieldName"
                   placeholder="请选择设备属性"
                   allow-clear
                 >
                   <a-option
                     v-for="item in filedList"
-                    :key="item.fieldType"
-                    :value="item.fieldName as string"
+                    :key="item.deviceFieldName"
+                    :value="item.deviceFieldName"
                     >{{ item.description }}</a-option
                   >
                 </a-select>
@@ -54,7 +54,6 @@
     </a-row>
     <a-divider style="margin-top: 0" />
     <a-table
-      row-key="upTime"
       :loading="loading"
       :pagination="pagination"
       :columns="columns"
@@ -62,12 +61,6 @@
       :bordered="false"
       @page-change="onPageChange"
     >
-      <template #description="{ record }">
-        {{
-          filedList.find((n) => n.fieldName === record.key)?.description ||
-          record.key
-        }}
-      </template>
       <template #value="{ record }">
         {{ formatValue(record) }}
       </template>
@@ -82,10 +75,10 @@
   import dayjs from 'dayjs';
   import { computed, PropType, reactive, ref } from 'vue';
   import {
-    DeviceFieldDataDto,
-    DeviceFieldDto,
-    DeviceTsKvService,
-  } from '@/services';
+    DeviceLatestMetricDataDto,
+    DeviceMetricDataService,
+    DeviceMetricListDataDto,
+  } from '@/services/sensor-core';
   import { TableColumnData } from '@arco-design/web-vue';
   import useLoading from '@/hooks/loading';
   import { Pagination } from '@/types/global';
@@ -96,7 +89,7 @@
       default: '',
     },
     filedList: {
-      type: Array as PropType<DeviceFieldDto[]>,
+      type: Array as PropType<DeviceLatestMetricDataDto[]>,
       default() {
         return [];
       },
@@ -105,7 +98,7 @@
 
   const generateSearchModel = () => {
     return {
-      key: '',
+      deviceFieldName: '',
       time: [Date.now(), Date.now()],
     };
   };
@@ -115,15 +108,15 @@
   const { loading, setLoading } = useLoading(false);
 
   // 表格
-  const tableData = ref<DeviceFieldDataDto[]>([]);
+  const tableData = ref<DeviceMetricListDataDto[]>([]);
   const columns = computed<TableColumnData[]>(() => [
     {
       title: '属性标识',
-      dataIndex: 'key',
-      slotName: 'key',
+      dataIndex: 'deviceFieldName',
+      slotName: 'deviceFieldName',
     },
     {
-      title: '属性描述',
+      title: '描述',
       dataIndex: 'description',
       slotName: 'description',
     },
@@ -153,16 +146,17 @@
     setLoading(true);
     try {
       const [startTime, endTime] = searchModel.value.time;
-      const result = await DeviceTsKvService.getDeviceTsKvRecordData({
-        ...pagination,
-        ...searchModel.value,
-        startTime: dayjs(startTime).startOf('d').toISOString(),
-        endTime: dayjs(endTime).endOf('d').toISOString(),
-        deviceId: props.deviceId as unknown as number,
-        sorting: 'upTime',
-        sortingDirection: 'DESC',
-      });
-      tableData.value = result.items as DeviceFieldDataDto[];
+      const result =
+        await DeviceMetricDataService.getDeviceMetricListDataByDeviceId({
+          ...pagination,
+          ...searchModel.value,
+          startTime: dayjs(startTime).startOf('d').toISOString(),
+          endTime: dayjs(endTime).endOf('d').toISOString(),
+          deviceId: props.deviceId as unknown as number,
+          sorting: 'upTime',
+          sortingDirection: 'DESC',
+        });
+      tableData.value = result.items as DeviceMetricListDataDto[];
       pagination.total = result.totalCount;
     } catch (err) {
       // you can report use errorHandler or other

@@ -128,7 +128,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref, toRaw } from 'vue';
+  import { computed, ref } from 'vue';
   import { Message } from '@arco-design/web-vue';
   import useLoading from '@/hooks/loading';
   import dayjs, { OpUnitType } from 'dayjs';
@@ -277,136 +277,6 @@
         endTime: dayjs(date).endOf(config.value.searchDateUnit).toISOString(),
       });
 
-      // const result = {
-      //   metrics: {
-      //     PM25: {
-      //       name: 'PM25',
-      //       timestamps: [
-      //         '2023-12-29T14:00:00Z',
-      //         '2023-12-29T15:00:00Z',
-      //         '2023-12-29T16:00:00Z',
-      //         '2023-12-29T17:00:00Z',
-      //         '2023-12-29T18:00:00Z',
-      //         '2023-12-29T19:00:00Z',
-      //         '2023-12-29T20:00:00Z',
-      //         '2023-12-29T21:00:00Z',
-      //         '2023-12-29T22:00:00Z',
-      //         '2023-12-29T23:00:00Z',
-      //         '2023-12-30T00:00:00Z',
-      //         '2023-12-30T01:00:00Z',
-      //         '2023-12-30T02:00:00Z',
-      //         '2023-12-30T03:00:00Z',
-      //         '2023-12-30T04:00:00Z',
-      //         '2023-12-30T05:00:00Z',
-      //         '2023-12-30T06:00:00Z',
-      //         '2023-12-30T07:00:00Z',
-      //         '2023-12-30T08:00:00Z',
-      //         '2023-12-30T09:00:00Z',
-      //         '2023-12-30T10:00:00Z',
-      //         '2023-12-30T11:00:00Z',
-      //         '2023-12-30T12:00:00Z',
-      //         '2023-12-30T13:00:00Z',
-      //         '2023-12-30T14:00:00Z',
-      //       ],
-      //       datasets: [
-      //         {
-      //           label: 'PM25',
-      //           data: [
-      //             0, 22.413794, 23.35, 25.4, 29.033333, 31.322035, 30.783333,
-      //             27.333334, 30.283333, 34.2, 35.559322, 36.05, 34, 35.283333,
-      //             44.33898, 65.833336, 89.6, 109.85, 118.05085, 97.05, 68.13333,
-      //             46.1, 37.76271, 33, 30.1,
-      //           ],
-      //         },
-      //       ],
-      //       kind: 'GAUGE',
-      //     },
-      //     TVOC: {
-      //       name: 'TVOC',
-      //       timestamps: [
-      //         '2023-12-29T14:00:00Z',
-      //         '2023-12-29T15:00:00Z',
-      //         '2023-12-29T16:00:00Z',
-      //         '2023-12-29T17:00:00Z',
-      //         '2023-12-29T18:00:00Z',
-      //         '2023-12-29T19:00:00Z',
-      //         '2023-12-29T20:00:00Z',
-      //         '2023-12-29T21:00:00Z',
-      //         '2023-12-29T22:00:00Z',
-      //         '2023-12-29T23:00:00Z',
-      //         '2023-12-30T00:00:00Z',
-      //         '2023-12-30T01:00:00Z',
-      //         '2023-12-30T02:00:00Z',
-      //         '2023-12-30T03:00:00Z',
-      //         '2023-12-30T04:00:00Z',
-      //         '2023-12-30T05:00:00Z',
-      //         '2023-12-30T06:00:00Z',
-      //         '2023-12-30T07:00:00Z',
-      //         '2023-12-30T08:00:00Z',
-      //         '2023-12-30T09:00:00Z',
-      //         '2023-12-30T10:00:00Z',
-      //         '2023-12-30T11:00:00Z',
-      //         '2023-12-30T12:00:00Z',
-      //         '2023-12-30T13:00:00Z',
-      //         '2023-12-30T14:00:00Z',
-      //       ],
-      //       datasets: [
-      //         {
-      //           label: 'TVOC',
-      //           data: [
-      //             0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-      //             1.0169492, 1.1333333, 1, 1, 1, 1, 1,
-      //           ],
-      //         },
-      //       ],
-      //       kind: 'GAUGE',
-      //     },
-      //     eCO2: {
-      //       name: 'eCO2',
-      //       timestamps: [
-      //         '2023-12-29T14:00:00Z',
-      //         '2023-12-29T15:00:00Z',
-      //         '2023-12-29T16:00:00Z',
-      //         '2023-12-29T17:00:00Z',
-      //         '2023-12-29T18:00:00Z',
-      //         '2023-12-29T19:00:00Z',
-      //         '2023-12-29T20:00:00Z',
-      //         '2023-12-29T21:00:00Z',
-      //         '2023-12-29T22:00:00Z',
-      //         '2023-12-29T23:00:00Z',
-      //         '2023-12-30T00:00:00Z',
-      //         '2023-12-30T01:00:00Z',
-      //         '2023-12-30T02:00:00Z',
-      //         '2023-12-30T03:00:00Z',
-      //         '2023-12-30T04:00:00Z',
-      //         '2023-12-30T05:00:00Z',
-      //         '2023-12-30T06:00:00Z',
-      //         '2023-12-30T07:00:00Z',
-      //         '2023-12-30T08:00:00Z',
-      //         '2023-12-30T09:00:00Z',
-      //         '2023-12-30T10:00:00Z',
-      //         '2023-12-30T11:00:00Z',
-      //         '2023-12-30T12:00:00Z',
-      //         '2023-12-30T13:00:00Z',
-      //         '2023-12-30T14:00:00Z',
-      //       ],
-      //       datasets: [
-      //         {
-      //           label: 'eCO2',
-      //           data: [
-      //             0, 400.44827, 403.16666, 402.03333, 405.95, 406, 405.98334,
-      //             406, 416.15, 434.93332, 463.0678, 495.03333, 496.41666,
-      //             463.33334, 433.84744, 461.26666, 506.01666, 549.4, 563.2373,
-      //             565.5333, 539.98334, 495.41666, 454.84744, 446.46667, 436.1,
-      //           ],
-      //         },
-      //       ],
-      //       kind: 'GAUGE',
-      //     },
-      //   },
-      //   states: {},
-      // };
-
       metricsData.value = metrics as Metrics;
     } catch (err: any) {
       Message.error({
@@ -453,50 +323,25 @@
     workbook.created = new Date();
     const workSheet = workbook.addWorksheet('Sheet1');
 
-    // 数据
-    workSheet.columns = [
-      {
-        header: '时间',
-        key: 'upTime',
-        width: 20,
+    workSheet.columns = columns.value.map((n) => {
+      return {
+        header: n.title,
+        key: n.dataIndex,
+        width: 30,
         alignment: { vertical: 'middle', horizontal: 'center' },
-      },
-      { header: '温度（℃）', key: 'temperature', width: 30 },
-      { header: '湿度（%）.', key: 'humidity', width: 30 },
-    ];
-
+      };
+    });
     workSheet.addRows(
-      toRaw(tableData.value).map((n) => {
-        const { temperature, humidity } = n;
-
+      tableData.value.map((n) => {
         return {
           ...n,
-          temperature: _.isNaN(parseFloat(temperature))
-            ? temperature
-            : parseFloat(temperature),
-          humidity: _.isNaN(parseFloat(humidity))
-            ? humidity
-            : parseFloat(humidity),
-          upTime: `${dayjs(searchModel.value.date).format('YYYY-MM-DD')} ${
-            n.dateHour
-          }`,
+          date: dayjs(n.date).format(config.value.tableDateFormat),
         };
       }),
     );
 
     // 配置
-    workSheet.getColumn('upTime').alignment = {
-      vertical: 'middle',
-      horizontal: 'center',
-    };
-    workSheet.getColumn('temperature').alignment = {
-      vertical: 'middle',
-      horizontal: 'center',
-    };
-    workSheet.getColumn('humidity').alignment = {
-      vertical: 'middle',
-      horizontal: 'center',
-    };
+    // workSheet.getColumn('date').numFmt = 'dd/mm/yyyy';
 
     // 下载
     const buffer = await workbook.xlsx.writeBuffer();

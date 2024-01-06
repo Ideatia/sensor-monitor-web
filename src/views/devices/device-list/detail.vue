@@ -35,7 +35,7 @@
       </a-card>
       <a-card class="general-card" title="设备详情">
         <a-tabs default-active-key="1" type="rounded">
-          <a-tab-pane key="1" title="设备属性" style="padding: 20px">
+          <a-tab-pane key="1" title="实时数据" style="padding: 20px">
             <a-table
               row-key="id"
               :loading="loading"
@@ -49,9 +49,9 @@
               </template>
             </a-table>
           </a-tab-pane>
-          <!--          <a-tab-pane key="2" title="遥测数据" style="padding: 20px">-->
-          <!--            <KvTable :device-id="id" :filed-list="deviceFieldList" />-->
-          <!--          </a-tab-pane>-->
+          <a-tab-pane key="2" title="数据明细" style="padding: 20px">
+            <KvTable :device-id="id" :filed-list="deviceFieldList" />
+          </a-tab-pane>
           <a-tab-pane key="3" title="告警配置" style="padding: 20px">
             <a-table
               row-key="id"
@@ -119,7 +119,8 @@
   import thpImage from '@/assets/images/Temperature_Humidity_Profile.png';
 
   import dayjs from 'dayjs';
-  // import KvTable from './components/kv-table.vue';
+  import KvTable from './components/kv-table.vue';
+
   const deviceTypeImage: Record<string, any> = {
     Environmental_Parameters_Profile: eppImage,
     Human_Infrared_Sensor_Profile: hispImage,
@@ -185,8 +186,8 @@
 
   const filedListColumns = [
     {
-      title: '属性名称',
-      dataIndex: 'key',
+      title: '属性标识',
+      dataIndex: 'deviceFieldName',
     },
     {
       title: '描述',
