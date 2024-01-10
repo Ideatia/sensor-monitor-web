@@ -2,7 +2,7 @@ import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
 const DASHBOARD: AppRouteRecordRaw = {
-  path: '/device',
+  path: '/devices',
   name: 'devices',
   component: DEFAULT_LAYOUT,
   meta: {
@@ -12,6 +12,16 @@ const DASHBOARD: AppRouteRecordRaw = {
     order: 0,
   },
   children: [
+    {
+      path: 'gateway',
+      name: 'Gateway',
+      component: () => import('@/views/devices/gateway/index.vue'),
+      meta: {
+        locale: '网关管理',
+        requiresAuth: true,
+        permissions: ['*'],
+      },
+    },
     {
       path: 'device-list',
       name: 'DeviceList',

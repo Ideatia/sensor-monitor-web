@@ -38,90 +38,6 @@ export class PagedResultDto<T = any> implements IPagedResult<T> {
 // customer definition
 // empty
 
-export class BindDeviceAreaService {
-  /**
-   * 在某个区域下批量绑定设备
-   */
-  static batchBind(
-    params: {
-      /** input */
-      input: BatchBindDeviceAreaInputDto;
-    } = {} as any,
-    options: IRequestOptions = {},
-  ): Promise<any> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + '/bindDeviceArea/batchBind';
-
-      const configs: IRequestConfig = getConfigs(
-        'post',
-        'application/json',
-        url,
-        options,
-      );
-
-      let data = params['input'];
-
-      configs.data = data;
-
-      axios(configs, resolve, reject);
-    });
-  }
-  /**
-   * 根据选择的区域IDS,批量解绑
-   */
-  static batchUnBind(
-    params: {
-      /** areaIds */
-      areaIds: any | null[];
-    } = {} as any,
-    options: IRequestOptions = {},
-  ): Promise<any> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + '/bindDeviceArea/batchUnbind';
-
-      const configs: IRequestConfig = getConfigs(
-        'post',
-        'application/json',
-        url,
-        options,
-      );
-
-      let data = params['areaIds'];
-
-      configs.data = data;
-
-      axios(configs, resolve, reject);
-    });
-  }
-  /**
-   * 根据选择的区域下的某些设备,对其进行批量解绑
-   */
-  static batchUnbindByAreaAndDevice(
-    params: {
-      /** input */
-      input: BatchUnbindByAreaAndDeviceInputDto;
-    } = {} as any,
-    options: IRequestOptions = {},
-  ): Promise<any> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + '/bindDeviceArea/batchUnbindByAreaAndDevice';
-
-      const configs: IRequestConfig = getConfigs(
-        'post',
-        'application/json',
-        url,
-        options,
-      );
-
-      let data = params['input'];
-
-      configs.data = data;
-
-      axios(configs, resolve, reject);
-    });
-  }
-}
-
 export class ChirpStackDeviceService {
   /**
    * 刷新设备的DownLinkQueue
@@ -597,6 +513,170 @@ export class ChirpStackDeviceProfileService {
       console.warn(
         '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
       );
+
+      axios(configs, resolve, reject);
+    });
+  }
+}
+
+export class DeviceGatewayService {
+  /**
+   * 创建网关
+   */
+  static createGateways(
+    params: {
+      /** input */
+      input: CreateGatewaysInputDto;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/device-gateway/create-gateways';
+
+      const configs: IRequestConfig = getConfigs(
+        'post',
+        'application/json',
+        url,
+        options,
+      );
+
+      let data = params['input'];
+
+      configs.data = data;
+
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   * 获取网关列表信息
+   */
+  static getGatewaysList(
+    params: {
+      /**  */
+      limit?: number;
+      /**  */
+      multicastGroupId?: string;
+      /**  */
+      offset?: number;
+      /** 该条件，当做网关的名称的搜索条件 */
+      search?: string;
+      /**  */
+      tenantId?: string;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<GatewayDataListDto> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/device-gateway/get-gateways-list';
+
+      const configs: IRequestConfig = getConfigs(
+        'get',
+        'application/json',
+        url,
+        options,
+      );
+      configs.params = {
+        limit: params['limit'],
+        multicastGroupId: params['multicastGroupId'],
+        offset: params['offset'],
+        search: params['search'],
+        tenantId: params['tenantId'],
+      };
+
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
+
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   * 根据网关ID，获取到网关详情信息
+   */
+  static getGateways(
+    params: {
+      /** gatewayId */
+      gatewayId: string;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<DeviceGatewayDetailDto> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/device-gateway/get-gateways/{gatewayId}';
+      url = url.replace('{gatewayId}', params['gatewayId'] + '');
+
+      const configs: IRequestConfig = getConfigs(
+        'get',
+        'application/json',
+        url,
+        options,
+      );
+
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
+
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   * 删除指定的网关
+   */
+  static removeGateways(
+    params: {
+      /** gatewayId */
+      gatewayId: string;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/device-gateway/remove-gateways/{gatewayId}';
+      url = url.replace('{gatewayId}', params['gatewayId'] + '');
+
+      const configs: IRequestConfig = getConfigs(
+        'delete',
+        'application/json',
+        url,
+        options,
+      );
+
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
+
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   * 更新网关信息
+   */
+  static updateGateways(
+    params: {
+      /** gatewayId */
+      gatewayId?: string;
+      /** input */
+      input: UpdateGatewaysInputDto;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/device-gateway/update-gateways';
+
+      const configs: IRequestConfig = getConfigs(
+        'put',
+        'application/json',
+        url,
+        options,
+      );
+      configs.params = { gatewayId: params['gatewayId'] };
+
+      let data = params['input'];
+
+      configs.data = data;
 
       axios(configs, resolve, reject);
     });
@@ -1131,12 +1211,12 @@ export class DeviceAreaService {
     });
   }
   /**
-   * 根据选择的区域IDS,批量解绑
+   * 根据选择的设备IDS,批量解绑
    */
   static batchUnBind(
     params: {
-      /** areaIds */
-      areaIds: any | null[];
+      /** deviceIds */
+      deviceIds: any | null[];
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -1150,7 +1230,7 @@ export class DeviceAreaService {
         options,
       );
 
-      let data = params['areaIds'];
+      let data = params['deviceIds'];
 
       configs.data = data;
 
@@ -1347,6 +1427,33 @@ export class DeviceAreaService {
     });
   }
   /**
+   * 在某个区域下，更新某个设备的排序
+   */
+  static updateAreasDeviceSort(
+    params: {
+      /** input */
+      input: UpdateAreasDeviceSortDto[];
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/deviceArea/updateAreasDeviceSort';
+
+      const configs: IRequestConfig = getConfigs(
+        'post',
+        'application/json',
+        url,
+        options,
+      );
+
+      let data = params['input'];
+
+      configs.data = data;
+
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
    * 更新设备区域
    */
   static updateDeviceArea(
@@ -1376,6 +1483,59 @@ export class DeviceAreaService {
 }
 
 export class DeviceMetricDataService {
+  /**
+   * 获取到设备的历史遥测数据
+   */
+  static getDeviceMetricData(
+    params: {
+      /** 设备ID */
+      deviceId?: number;
+      /** 结束时间 */
+      endTime?: string;
+      /** 页码 */
+      pageNumber?: number;
+      /** 每页显示的记录数 */
+      pageSize?: number;
+      /** 排序字段名 */
+      sorting?: string;
+      /** 排序的方式 */
+      sortingDirection?: string;
+      /** 开始时间 */
+      startTime?: string;
+      /** 是否不分页，默认分页 */
+      unPage?: boolean;
+    } = {} as any,
+    options: IRequestOptions = {},
+  ): Promise<DeviceMetricAggregationDataDetailDto> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/deviceMetricData/get-device-metric-data';
+
+      const configs: IRequestConfig = getConfigs(
+        'get',
+        'application/json',
+        url,
+        options,
+      );
+      configs.params = {
+        deviceId: params['deviceId'],
+        endTime: params['endTime'],
+        pageNumber: params['pageNumber'],
+        pageSize: params['pageSize'],
+        sorting: params['sorting'],
+        sortingDirection: params['sortingDirection'],
+        startTime: params['startTime'],
+        unPage: params['unPage'],
+      };
+
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
+
+      axios(configs, resolve, reject);
+    });
+  }
   /**
    * 根据设备物联ID相关条件，获取到设备遥测的历史数据
    */
@@ -1664,6 +1824,37 @@ export interface CreateDeviceQueueItemInputDto {
   queueItem?: CreateDeviceQueueItemDataDto;
 }
 
+export interface CreateGatewaysDataDto {
+  /**  */
+  description?: string;
+
+  /** 网关ID，是16位的16进制数 */
+  gatewayId?: string;
+
+  /** 网关的位置信息 */
+  location?: GatewayLocationDto;
+
+  /**  */
+  metaData?: object;
+
+  /** 网关的名称 */
+  name?: string;
+
+  /** 网关发送统计信息的预期间隔 (秒) */
+  statsInterval?: string;
+
+  /**  */
+  tags?: object;
+
+  /** 租户ID */
+  tenantId?: string;
+}
+
+export interface CreateGatewaysInputDto {
+  /**  */
+  gateway?: CreateGatewaysDataDto;
+}
+
 export interface DeviceAreaDto {
   /** 区域名称 */
   areaName?: string;
@@ -1677,6 +1868,9 @@ export interface DeviceAreaDto {
   /** 父设备区域id */
   parentId?: string;
 
+  /**  */
+  room?: boolean;
+
   /** 序号 */
   sortIndex?: number;
 }
@@ -1687,6 +1881,9 @@ export interface DeviceAreaInputDto {
 
   /** 父级区域id */
   parentId?: string;
+
+  /**  */
+  room?: boolean;
 
   /** 顺序 */
   sortIndex?: number;
@@ -1777,6 +1974,20 @@ export interface DeviceFieldDto {
 
   /** id */
   id?: string;
+}
+
+export interface DeviceGatewayDetailDto {
+  /**  */
+  createdAt?: Date;
+
+  /**  */
+  gateway?: CreateGatewaysDataDto;
+
+  /**  */
+  lastSeenAt?: Date;
+
+  /**  */
+  updatedAt?: Date;
 }
 
 export interface DeviceKeysInfoDto {
@@ -1909,6 +2120,9 @@ export interface DeviceLinkMetricsRxPacketsPerFreqDto {
 }
 
 export interface DeviceListDto {
+  /** 设备所属的区域ID */
+  areaId?: string;
+
   /** 设备描述 */
   description?: string;
 
@@ -1924,6 +2138,9 @@ export interface DeviceListDto {
   /** id */
   id?: string;
 
+  /** 设备排序标识 */
+  index?: number;
+
   /** 设备最新的遥测数据 */
   latestMetricDataList?: DeviceLatestMetricDataDto[];
 
@@ -1932,6 +2149,22 @@ export interface DeviceListDto {
 
   /** 设备是否在线，true表示在线 */
   online?: boolean;
+}
+
+export interface DeviceMetricAggregationDataDetailDto {
+  /** 设备属性的历史遥测的聚合数据,key是对应的设备属性名 */
+  metrics?: object;
+
+  /** 设备各个属性的历史遥测数据的总数量 */
+  totalCount?: number;
+}
+
+export interface DeviceMetricDataSetDto {
+  /** 设备属性对应的遥测数据集 */
+  data?: number[];
+
+  /** 设备属性名 */
+  label?: string;
 }
 
 export interface DeviceMetricListDataDto {
@@ -1982,6 +2215,17 @@ export interface DeviceMetricResponseDto {
 
   /** 遥测的相关额外信息 */
   states?: object;
+}
+
+export interface DeviceMetricsAggregationDataDto {
+  /** 设备属性的历史遥测数据值 */
+  datasets?: DeviceMetricDataSetDto[];
+
+  /** 设备属性名的中文描述 */
+  name?: string;
+
+  /** 设备属性的历史遥测数据的上报时间 */
+  timestamps?: LocalDateTime[];
 }
 
 export interface DeviceOtaaKeyInfoDto {
@@ -2241,6 +2485,66 @@ export interface DownLinkDeviceQueueDataDto {
 export interface EnumOutputDto {
   /** 通讯设备类型枚举 */
   deviceType?: SelectListOutputDto[];
+
+  /** 网关位置坐标源类型 */
+  gatewayLocationSourceType?: SelectListOutputDto[];
+}
+
+export interface GatewayDataItemDto {
+  /**  */
+  createdAt?: Date;
+
+  /**  */
+  description?: string;
+
+  /** 网关ID */
+  gatewayId?: string;
+
+  /**  */
+  lastSeenAt?: Date;
+
+  /** 网关的位置信息 */
+  location?: GatewayLocationDto;
+
+  /** 网关的名称 */
+  name?: string;
+
+  /**  */
+  properties?: object;
+
+  /**  */
+  state?: string;
+
+  /** 租户ID */
+  tenantId?: string;
+
+  /**  */
+  updatedAt?: Date;
+}
+
+export interface GatewayDataListDto {
+  /**  */
+  result?: GatewayDataItemDto[];
+
+  /**  */
+  totalCount?: string;
+}
+
+export interface GatewayLocationDto {
+  /**  */
+  accuracy?: number;
+
+  /**  */
+  altitude?: number;
+
+  /**  */
+  latitude?: number;
+
+  /**  */
+  longitude?: number;
+
+  /**  */
+  source?: EnumGatewayLocationDtoSource;
 }
 
 export interface GetDownLinkDeviceQueueResponseDto {
@@ -2284,6 +2588,14 @@ export interface SelectListOutputDto {
   value?: number;
 }
 
+export interface UpdateAreasDeviceSortDto {
+  /** 设备ID */
+  deviceId?: string;
+
+  /** 排序值 */
+  index?: number;
+}
+
 export interface UpdateChirpStackDeviceInfoItemInputDto {
   /** 设备所属应用ID,后端传值 */
   applicationId?: string;
@@ -2325,12 +2637,29 @@ export interface UpdateDeviceAreaInputDto {
   /** 父设备区域id */
   parentId?: string;
 
+  /**  */
+  room?: boolean;
+
   /** 顺序 */
   sortIndex?: number;
+}
+
+export interface UpdateGatewaysInputDto {
+  /**  */
+  gateway?: CreateGatewaysDataDto;
 }
 export enum EnumDeviceFieldDtoFieldType {
   'DOUBLE' = 'DOUBLE',
   'STRING' = 'STRING',
   'BOOLEAN' = 'BOOLEAN',
   'LONG' = 'LONG',
+}
+export enum EnumGatewayLocationDtoSource {
+  'UNKNOWN' = 'UNKNOWN',
+  'GPS' = 'GPS',
+  'CONFIG' = 'CONFIG',
+  'GEO_RESOLVER_TDOA' = 'GEO_RESOLVER_TDOA',
+  'GEO_RESOLVER_RSSI' = 'GEO_RESOLVER_RSSI',
+  'GEO_RESOLVER_GNSS' = 'GEO_RESOLVER_GNSS',
+  'GEO_RESOLVER_WIFI' = 'GEO_RESOLVER_WIFI',
 }
