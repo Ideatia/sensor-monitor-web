@@ -2,7 +2,7 @@ import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
 const DASHBOARD: AppRouteRecordRaw = {
-  path: '/device',
+  path: '/devices',
   name: 'devices',
   component: DEFAULT_LAYOUT,
   meta: {
@@ -29,6 +29,16 @@ const DASHBOARD: AppRouteRecordRaw = {
       meta: {
         hideInMenu: true,
         locale: '设备详情',
+        requiresAuth: true,
+        permissions: ['*'],
+      },
+    },
+    {
+      path: 'device-area',
+      name: 'DeviceArea',
+      component: () => import('@/views/devices/device-area/index.vue'),
+      meta: {
+        locale: '设备区域',
         requiresAuth: true,
         permissions: ['*'],
       },

@@ -1,3 +1,5 @@
+import { PaginationProps } from '@arco-design/web-vue';
+
 export interface AnyObject {
   [key: string]: unknown;
 }
@@ -23,10 +25,11 @@ export interface PostData {
   url: string;
 }
 
-export interface Pagination {
+export interface Pagination extends Omit<PaginationProps, 'current'> {
   pageNumber: number;
-  pageSize: number;
-  total?: number;
+  // pageSize: number;
+  // total?: number;
+  // showTotal: boolean;
 }
 
 export type TimeRanger = [string, string];

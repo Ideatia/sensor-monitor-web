@@ -4,9 +4,23 @@
 import axiosStatic, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 export interface IRequestOptions extends AxiosRequestConfig {
-  /** only in axios interceptor config*/
+  /**
+   * show loading status
+   */
   loading?: boolean;
+  /**
+   * display error message
+   */
   showError?: boolean;
+  /**
+   * data security, extended fields are encrypted using the specified algorithm
+   */
+  security?: Record<string, 'md5' | 'sha1' | 'aes' | 'des'>;
+  /**
+   * indicates whether Authorization credentials are required for the request
+   * @default true
+   */
+  withAuthorization?: boolean;
 }
 
 export interface IRequestConfig {

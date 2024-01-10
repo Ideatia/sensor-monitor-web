@@ -53,7 +53,11 @@ export class SettingsService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -74,7 +78,11 @@ export class SettingsService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -95,7 +103,11 @@ export class SettingsService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -116,7 +128,11 @@ export class SettingsService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -135,7 +151,11 @@ export class SettingsService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -259,7 +279,7 @@ export class AuditLogService {
       /** 浏览器 */
       browserInfo?: string;
       /** 结束时间 */
-      endDate?: string;
+      endDate?: Date;
       /** 错误状态 */
       hasException?: boolean;
       /** 操作 */
@@ -267,7 +287,7 @@ export class AuditLogService {
       /** 服务 */
       serviceName?: string;
       /** 开始时间 */
-      startDate?: string;
+      startDate?: Date;
       /** 用户名 */
       userName?: string;
     } = {} as any,
@@ -292,7 +312,11 @@ export class AuditLogService {
         userName: params['userName'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -305,7 +329,7 @@ export class AuditLogService {
       /** 浏览器 */
       browserInfo?: string;
       /** 结束时间 */
-      endDate?: string;
+      endDate?: Date;
       /** 错误状态 */
       hasException?: boolean;
       /** 最大持续时间 */
@@ -325,7 +349,7 @@ export class AuditLogService {
       /** 排序的方式 */
       sortingDirection?: string;
       /** 开始时间 */
-      startDate?: string;
+      startDate?: Date;
       /** 是否不分页，默认分页 */
       unPage?: boolean;
       /** 用户名 */
@@ -359,7 +383,11 @@ export class AuditLogService {
         userName: params['userName'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -370,7 +398,7 @@ export class AuditLogService {
   static detail(
     params: {
       /** id */
-      id: number;
+      id: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<AuditLogDetailDto> {
@@ -385,7 +413,11 @@ export class AuditLogService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -407,7 +439,11 @@ export class CaptchaService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -462,9 +498,11 @@ export class CommonSettingService {
         options,
       );
 
-      let data = params['input'];
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -490,7 +528,11 @@ export class CommonSettingService {
       );
       configs.params = { key: params['key'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -536,7 +578,11 @@ export class CommonSettingService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -562,7 +608,11 @@ export class CommonSettingService {
       );
       configs.params = { filter: params['filter'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -584,7 +634,11 @@ export class ConfigurationService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -639,9 +693,11 @@ export class EditionService {
         options,
       );
 
-      let data = params['input'];
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -652,7 +708,7 @@ export class EditionService {
   static exportEdition(
     params: {
       /** id */
-      id: number;
+      id: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -667,7 +723,11 @@ export class EditionService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -701,7 +761,11 @@ export class EditionService {
         selectedEditionId: params['selectedEditionId'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -712,7 +776,7 @@ export class EditionService {
   static getEditionForEdit(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<EditionEditDto> {
@@ -727,7 +791,11 @@ export class EditionService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -770,7 +838,11 @@ export class EditionService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -833,7 +905,11 @@ export class FeatureService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -844,7 +920,7 @@ export class FeatureService {
   static getTenantFeaturesForEdit(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<TenantFeature[]> {
@@ -859,7 +935,11 @@ export class FeatureService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -878,7 +958,11 @@ export class FeatureService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -889,7 +973,7 @@ export class FeatureService {
   static getTenantFeaturesByEdition(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<TenantFeature[]> {
@@ -904,7 +988,11 @@ export class FeatureService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1005,7 +1093,7 @@ export class LoginLogService {
       /** 登录客户端类型(网页、APP等) */
       clientType?: string;
       /** 查询时段截止时间 */
-      endTime?: string;
+      endTime?: Date;
       /** 是否成功 */
       isSuccess?: boolean;
       /** 页码 */
@@ -1017,7 +1105,7 @@ export class LoginLogService {
       /** 排序的方式 */
       sortingDirection?: string;
       /** 查询时段开始时间 */
-      startTime?: string;
+      startTime?: Date;
       /** 是否不分页，默认分页 */
       unPage?: boolean;
       /** 登录账号名/手机号 */
@@ -1049,7 +1137,11 @@ export class LoginLogService {
         userName: params['userName'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1066,7 +1158,7 @@ export class LoginLogService {
       /** 登录客户端类型(网页、APP等) */
       clientType?: string;
       /** 查询时段截止时间 */
-      endTime?: string;
+      endTime?: Date;
       /** 是否成功 */
       isSuccess?: boolean;
       /** 页码 */
@@ -1078,7 +1170,7 @@ export class LoginLogService {
       /** 排序的方式 */
       sortingDirection?: string;
       /** 查询时段开始时间 */
-      startTime?: string;
+      startTime?: Date;
       /** 是否不分页，默认分页 */
       unPage?: boolean;
       /** 登录账号名/手机号 */
@@ -1110,7 +1202,11 @@ export class LoginLogService {
         userName: params['userName'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1192,9 +1288,11 @@ export class OrganizationUnitService {
         options,
       );
 
-      let data = params['input'];
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1297,7 +1395,11 @@ export class OrganizationUnitService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1323,7 +1425,11 @@ export class OrganizationUnitService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1334,7 +1440,7 @@ export class OrganizationUnitService {
   static getParentOrganizations(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<ParentOrganizationOutput[]> {
@@ -1349,7 +1455,11 @@ export class OrganizationUnitService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1370,7 +1480,11 @@ export class OrganizationUnitService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1391,7 +1505,11 @@ export class OrganizationUnitService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1412,7 +1530,11 @@ export class OrganizationUnitService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1464,9 +1586,11 @@ export class OrganizationUnitService {
         options,
       );
 
-      let data = params['input'];
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1479,7 +1603,7 @@ export class OrganizationUnitService {
       /** enabled */
       enabled?: boolean;
       /** id */
-      id: number;
+      id: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -1538,7 +1662,7 @@ export class TenantPermissionService {
   static getEditionPermissionsById(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<RolePermissionDto[]> {
@@ -1553,7 +1677,11 @@ export class TenantPermissionService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1564,7 +1692,7 @@ export class TenantPermissionService {
   static getTenantPermissions(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<RolePermissionDto[]> {
@@ -1579,7 +1707,11 @@ export class TenantPermissionService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1677,7 +1809,7 @@ export class RoleService {
       input: RoleCreateOrEditDto;
     } = {} as any,
     options: IRequestOptions = {},
-  ): Promise<number> {
+  ): Promise<string> {
     return new Promise((resolve, reject) => {
       let url = basePath + '/role/createOrUpdateRole';
 
@@ -1701,10 +1833,10 @@ export class RoleService {
   static deleteRole(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
-  ): Promise<number> {
+  ): Promise<string> {
     return new Promise((resolve, reject) => {
       let url = basePath + '/role/deleteRole';
 
@@ -1716,9 +1848,11 @@ export class RoleService {
       );
       configs.params = { id: params['id'] };
 
-      let data = null;
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1737,7 +1871,11 @@ export class RoleService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1748,7 +1886,7 @@ export class RoleService {
   static getRoleDetails(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<RoleDto> {
@@ -1763,7 +1901,11 @@ export class RoleService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1806,7 +1948,11 @@ export class RoleService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1821,7 +1967,7 @@ export class RoleService {
       /** 每页显示的记录数 */
       pageSize?: number;
       /** 角色id */
-      roleId?: number;
+      roleId?: string;
       /** 排序字段名 */
       sorting?: string;
       /** 排序的方式 */
@@ -1852,7 +1998,11 @@ export class RoleService {
         userName: params['userName'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1893,7 +2043,7 @@ export class RoleService {
       input: UpdateRolePermissionDto;
     } = {} as any,
     options: IRequestOptions = {},
-  ): Promise<number> {
+  ): Promise<string> {
     return new Promise((resolve, reject) => {
       let url = basePath + '/role/updateRolePermission';
 
@@ -1930,7 +2080,11 @@ export class SerialNoService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1973,7 +2127,11 @@ export class SerialNoService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -1984,7 +2142,7 @@ export class SerialNoService {
   static testNextNo(
     params: {
       /** id */
-      id: number;
+      id: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<string> {
@@ -1999,7 +2157,11 @@ export class SerialNoService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2030,7 +2192,11 @@ export class SerialNoService {
         serialLength: params['serialLength'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2079,7 +2245,11 @@ export class SysCodeTypeService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2134,9 +2304,11 @@ export class SysCodeValueService {
         options,
       );
 
-      let data = params['ids'];
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2204,7 +2376,7 @@ export class SysMenuService {
   static delete(
     params: {
       /** id */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -2219,9 +2391,11 @@ export class SysMenuService {
       );
       configs.params = { id: params['id'] };
 
-      let data = null;
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2240,9 +2414,11 @@ export class SysMenuService {
         options,
       );
 
-      let data = null;
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2253,7 +2429,7 @@ export class SysMenuService {
   static deleteCurrent(
     params: {
       /** id */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -2268,9 +2444,11 @@ export class SysMenuService {
       );
       configs.params = { id: params['id'] };
 
-      let data = null;
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2319,7 +2497,11 @@ export class SysMenuService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2401,9 +2583,11 @@ export class TenantService {
         options,
       );
 
-      let data = params['entityDto'];
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2414,7 +2598,7 @@ export class TenantService {
   static getTenantForEdit(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<TenantEditDto> {
@@ -2429,7 +2613,11 @@ export class TenantService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2440,9 +2628,9 @@ export class TenantService {
   static getTenants(
     params: {
       /** 创建时间区间结束时间 */
-      creationDateEnd?: string;
+      creationDateEnd?: Date;
       /** 创建时间区间起始时间 */
-      creationDateStart?: string;
+      creationDateStart?: Date;
       /** 租户关联的版本的唯一标识 */
       editionId?: string;
       /** 根据租户名模糊查找 */
@@ -2456,9 +2644,9 @@ export class TenantService {
       /** 排序的方式 */
       sortingDirection?: string;
       /** 订阅到期区间结束时间 */
-      subscriptionEndDateEnd?: string;
+      subscriptionEndDateEnd?: Date;
       /** 订阅到期区间起始时间 */
-      subscriptionEndDateStart?: string;
+      subscriptionEndDateStart?: Date;
       /** 是否不分页，默认分页 */
       unPage?: boolean;
     } = {} as any,
@@ -2487,7 +2675,11 @@ export class TenantService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2500,7 +2692,7 @@ export class TenantService {
       /** 租户管理员重置密码 */
       newPwd: string;
       /** 租户ID */
-      tenantId: number;
+      tenantId: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -2531,9 +2723,9 @@ export class TenantService {
   static hostTenantImpersonation(
     params: {
       /** 租户ID */
-      tenantId: number;
+      tenantId: string;
       /** 租户用户ID */
-      userId: number;
+      userId: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<string> {
@@ -2572,7 +2764,11 @@ export class TenantService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2583,7 +2779,7 @@ export class TenantService {
   static hostTenantImpersonationOther(
     params: {
       /** 租户用户ID */
-      userId: number;
+      userId: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<string> {
@@ -2626,7 +2822,11 @@ export class TenantService {
       );
       configs.params = { tenantName: params['tenantName'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2674,7 +2874,7 @@ export class TenantService {
       /** 排序的方式 */
       sortingDirection?: string;
       /** tenantId */
-      tenantId: number;
+      tenantId: string;
       /** 是否不分页，默认分页 */
       unPage?: boolean;
     } = {} as any,
@@ -2699,7 +2899,11 @@ export class TenantService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2721,7 +2925,11 @@ export class ToDoService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2770,7 +2978,11 @@ export class ToDoService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2781,7 +2993,7 @@ export class ToDoService {
   static ignore(
     params: {
       /** id */
-      id: number;
+      id: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -2868,7 +3080,11 @@ export class TokenAuthService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2887,7 +3103,11 @@ export class TokenAuthService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2913,7 +3133,11 @@ export class TokenAuthService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -2939,7 +3163,11 @@ export class TokenAuthService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3048,9 +3276,11 @@ export class UserService {
         options,
       );
 
-      let data = params['entityDto'];
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3075,9 +3305,11 @@ export class UserService {
         options,
       );
 
-      let data = params['entityDtos'];
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
 
-      configs.data = data;
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3096,7 +3328,11 @@ export class UserService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3104,7 +3340,7 @@ export class UserService {
   /**
    * 获取登录用户的角色
    */
-  static getCurrentRoles(options: IRequestOptions = {}): Promise<number[]> {
+  static getCurrentRoles(options: IRequestOptions = {}): Promise<string[]> {
     return new Promise((resolve, reject) => {
       let url = basePath + '/user/getCurrentRoles';
 
@@ -3115,7 +3351,11 @@ export class UserService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3128,13 +3368,13 @@ export class UserService {
       /** 模糊查找[姓名、账号、电子邮箱、手机号、角色名、工号] */
       filter?: string;
       /** 组织机构Id */
-      orgaId?: number;
+      orgaId?: string;
       /** 页码 */
       pageNumber?: number;
       /** 每页显示的记录数 */
       pageSize?: number;
       /** 角色id */
-      roleId?: number;
+      roleId?: string;
       /** 角色 name */
       roleName?: string;
       /** 排序字段名 */
@@ -3167,7 +3407,11 @@ export class UserService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3188,7 +3432,11 @@ export class UserService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3211,7 +3459,7 @@ export class UserService {
       /** 角色code */
       roleCode?: string;
       /** 角色id */
-      roleId?: number;
+      roleId?: string;
       /** 角色 name */
       roleName?: string;
       /** 排序字段名 */
@@ -3246,7 +3494,11 @@ export class UserService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3292,7 +3544,11 @@ export class UserService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3335,7 +3591,11 @@ export class UserService {
         unPage: params['unPage'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3346,7 +3606,7 @@ export class UserService {
   static getUsersForEdit(
     params: {
       /** 唯一标识 */
-      id?: number;
+      id?: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<GetUserForEditOutput> {
@@ -3361,7 +3621,11 @@ export class UserService {
       );
       configs.params = { id: params['id'] };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3395,7 +3659,11 @@ export class UserService {
         userName: params['userName'],
       };
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3414,7 +3682,11 @@ export class UserService {
         options,
       );
 
-      /** 适配ios13，get请求不允许带body */
+      /** 适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body */
+
+      console.warn(
+        '适配移动开发（iOS13 等版本），只有 POST、PUT 等请求允许带body',
+      );
 
       axios(configs, resolve, reject);
     });
@@ -3452,7 +3724,7 @@ export class UserService {
   static saveMyselfPicture(
     params: {
       /** minioId */
-      minioId: number;
+      minioId: string;
       /** signature或者profile */
       type: string;
     } = {} as any,
@@ -3482,11 +3754,11 @@ export class UserService {
   static saveUserPicture(
     params: {
       /** minioId */
-      minioId: number;
+      minioId: string;
       /** signature或者profile */
       type: string;
       /** userId */
-      userId: number;
+      userId: string;
     } = {} as any,
     options: IRequestOptions = {},
   ): Promise<any> {
@@ -3618,7 +3890,7 @@ export interface AuditLogDetailDto {
   executionTime?: Date;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /**  */
   methodName?: string;
@@ -3636,7 +3908,7 @@ export interface AuditLogDetailDto {
   serviceName?: string;
 
   /**  */
-  userId?: number;
+  userId?: string;
 
   /**  */
   userName?: string;
@@ -3662,7 +3934,7 @@ export interface AuditLogListDto {
   executionTime?: Date;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /**  */
   methodName?: string;
@@ -3671,7 +3943,7 @@ export interface AuditLogListDto {
   serviceName?: string;
 
   /**  */
-  userId?: number;
+  userId?: string;
 
   /**  */
   userName?: string;
@@ -3707,12 +3979,12 @@ export interface BindRoleToOrgInput {
   orgIds?: number[];
 
   /** 角色id */
-  roleId?: number;
+  roleId?: string;
 }
 
 export interface BindRoleToUserInput {
   /** 设置给用户的角色id */
-  roleId?: number;
+  roleId?: string;
 
   /** 需要设置角色的userIds */
   userIds?: number[];
@@ -3739,7 +4011,7 @@ export interface ChangePwdInput {
   newPwd?: string;
 
   /** 选中的用户id */
-  userId?: number;
+  userId?: string;
 }
 
 export interface CommonSettingDto {
@@ -3750,7 +4022,7 @@ export interface CommonSettingDto {
   groupName?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** key */
   key?: string;
@@ -3792,7 +4064,7 @@ export interface CreateOrUpdateCommonSettingInput {
   groupName?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** key */
   key?: string;
@@ -3820,7 +4092,7 @@ export interface CreateOrganizationUnitInput {
   displayName?: string;
 
   /** 父组织机构id */
-  parentId?: number;
+  parentId?: string;
 
   /** 序号 */
   sortIndex?: number;
@@ -3855,7 +4127,7 @@ export interface CreateTenantInput {
   description?: string;
 
   /** 版本的唯一标识id */
-  editionId?: number;
+  editionId?: string;
 
   /** 租户名 */
   name?: string;
@@ -3887,7 +4159,7 @@ export interface EditionEditDto {
   expiringEditionId?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 每月的价格 */
   monthlyPrice?: number;
@@ -3904,7 +4176,7 @@ export interface EditionEditDto {
 
 export interface EditionFeatureInputDto {
   /** 版本id */
-  editionId?: number;
+  editionId?: string;
 
   /** 特性 */
   featureList?: FeatureValueInput[];
@@ -3918,7 +4190,7 @@ export interface EditionListDto {
   displayName?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 名称 */
   name?: string;
@@ -3926,7 +4198,7 @@ export interface EditionListDto {
 
 export interface EditionPermissionInputDto {
   /**  */
-  id?: number;
+  id?: string;
 
   /**  */
   permissions?: string[];
@@ -3934,7 +4206,7 @@ export interface EditionPermissionInputDto {
 
 export interface EntityDto {
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 }
 
 export interface EnumOutputDto {
@@ -3960,7 +4232,7 @@ export interface GetOrganizationUnitUsersForSelectInput {
   filter?: string;
 
   /** 组织机构id */
-  orgId?: number;
+  orgId?: string;
 
   /** 页码 */
   pageNumber?: number;
@@ -4012,7 +4284,7 @@ export interface GetSysMenuListDto {
   iconType?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 是否屏蔽菜单 */
   ignored?: boolean;
@@ -4071,7 +4343,7 @@ export interface IsTenantAvailableOutput {
   state?: EnumIsTenantAvailableOutputState;
 
   /** 租户id */
-  tenantId?: number;
+  tenantId?: string;
 }
 
 export interface Item {
@@ -4123,7 +4395,7 @@ export interface LoginLogDto {
   executionTime?: Date;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 是否成功 */
   isSuccess?: boolean;
@@ -4159,10 +4431,10 @@ export interface Map_string_string {}
 
 export interface MoveOrganizationUnitInput {
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 新父组织机构id */
-  newParentId?: number;
+  newParentId?: string;
 }
 
 export interface NameValueDefaultByDto_long {
@@ -4173,7 +4445,7 @@ export interface NameValueDefaultByDto_long {
   name?: string;
 
   /**  */
-  value?: number;
+  value?: string;
 }
 
 export interface NameValueDto_long {
@@ -4181,7 +4453,7 @@ export interface NameValueDto_long {
   name?: string;
 
   /**  */
-  value?: number;
+  value?: string;
 }
 
 export interface NameValueDto_string {
@@ -4197,7 +4469,7 @@ export interface OrganizationStationUnitDto {
   code?: string;
 
   /** 创建者 */
-  createId?: number;
+  createId?: string;
 
   /** 创建时间 */
   createTime?: Date;
@@ -4206,16 +4478,16 @@ export interface OrganizationStationUnitDto {
   displayName?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 修改者 */
-  lastModifyId?: number;
+  lastModifyId?: string;
 
   /** 修改时间 */
   lastModifyTime?: Date;
 
   /** 父组织机构id */
-  parentId?: number;
+  parentId?: string;
 
   /** 序号 */
   sortIndex?: number;
@@ -4227,7 +4499,7 @@ export interface OrganizationStationUnitDto {
   stationEnabled?: boolean;
 
   /** 租户id */
-  tenantId?: number;
+  tenantId?: string;
 
   /** 版本 */
   version?: number;
@@ -4238,7 +4510,7 @@ export interface OrganizationUnitDto {
   code?: string;
 
   /** 创建者 */
-  createId?: number;
+  createId?: string;
 
   /** 创建时间 */
   createTime?: Date;
@@ -4247,16 +4519,16 @@ export interface OrganizationUnitDto {
   displayName?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 修改者 */
-  lastModifyId?: number;
+  lastModifyId?: string;
 
   /** 修改时间 */
   lastModifyTime?: Date;
 
   /** 父组织机构id */
-  parentId?: number;
+  parentId?: string;
 
   /** 序号 */
   sortIndex?: number;
@@ -4265,7 +4537,7 @@ export interface OrganizationUnitDto {
   station?: boolean;
 
   /** 租户id */
-  tenantId?: number;
+  tenantId?: string;
 
   /** 版本 */
   version?: number;
@@ -4273,7 +4545,7 @@ export interface OrganizationUnitDto {
 
 export interface OrganizationUnitUserForSelectDto {
   /** 用户id */
-  id?: number;
+  id?: string;
 
   /** 姓名 */
   name?: string;
@@ -4287,13 +4559,13 @@ export interface OrganizationUnitUserListDto {
   emailAddress?: string;
 
   /** 用户id */
-  id?: number;
+  id?: string;
 
   /** 姓名 */
   name?: string;
 
   /** 所属组织机构id */
-  organizationUnitId?: number;
+  organizationUnitId?: string;
 
   /** 所属组织机构名称 */
   organizationUnitName?: string;
@@ -4321,7 +4593,7 @@ export interface RoleCreateOrEditDto {
   default?: boolean;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 角色代码 */
   roleCode?: string;
@@ -4344,7 +4616,7 @@ export interface RoleDto {
   default?: boolean;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 权限列表 */
   permissionList?: RolePermissionDto[];
@@ -4389,13 +4661,13 @@ export interface SerialNoDto {
   billType?: string;
 
   /** 当前序号 */
-  currentNo?: number;
+  currentNo?: string;
 
   /** 日期格式化 */
   dateFormat?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 最后一次的序列号 */
   lastNo?: string;
@@ -4412,13 +4684,13 @@ export interface SerialNoDto {
 
 export interface SerialNoEditInput {
   /** 当前序号 */
-  currentNo?: number;
+  currentNo?: string;
 
   /** 日期格式化 */
   dateFormat?: string;
 
   /** 主键 */
-  id?: number;
+  id?: string;
 
   /** 自增长序号长度 */
   noLength?: number;
@@ -4429,7 +4701,7 @@ export interface SerialNoEditInput {
 
 export interface SetDefaultStationInput {
   /** 厂站id */
-  stationId?: number;
+  stationId?: string;
 }
 
 export interface SettingDto {
@@ -4494,10 +4766,10 @@ export interface SysCodeValueDto {
   describe?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 配置常量所属父节点ID */
-  parentId?: number;
+  parentId?: string;
 
   /** 置常量在所属类型组排序 */
   sortIndex?: number;
@@ -4549,7 +4821,7 @@ export interface SysMenuInputDto {
   iconType?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 是否屏蔽菜单 */
   ignored?: boolean;
@@ -4575,7 +4847,7 @@ export interface TenantConfigDto {
   description?: string;
 
   /**  */
-  id?: number;
+  id?: string;
 
   /**  */
   name?: string;
@@ -4601,10 +4873,10 @@ export interface TenantEditDto {
   description?: string;
 
   /** 版本的唯一标识id */
-  editionId?: number;
+  editionId?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 是否在试用期 */
   inTrialPeriod?: boolean;
@@ -4650,7 +4922,7 @@ export interface TenantFeatureInputDto {
   featureList?: FeatureValueInput[];
 
   /** 租户id */
-  tenantId?: number;
+  tenantId?: string;
 }
 
 export interface TenantListDto {
@@ -4679,7 +4951,7 @@ export interface TenantListDto {
   editionId?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 租户名称 */
   name?: string;
@@ -4725,7 +4997,7 @@ export interface TodoInfoDto {
 
 export interface UnbindRoleForUserDto {
   /** 设置给用户的角色id */
-  roleId?: number;
+  roleId?: string;
 
   /** 需要设置角色的userIds */
   userIds?: number[];
@@ -4736,10 +5008,10 @@ export interface UpdateOrganizationUnitInput {
   displayName?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 父组织机构id */
-  parentId?: number;
+  parentId?: string;
 
   /** 序号 */
   sortIndex?: number;
@@ -4750,7 +5022,7 @@ export interface UpdateOrganizationUnitInput {
 
 export interface UpdateRolePermissionDto {
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 权限列表 */
   permissions?: CreateOrEditRolePermissionDto[];
@@ -4777,7 +5049,7 @@ export interface UserContext {
   authorities?: GrantedAuthority[];
 
   /** jwt有效秒数 */
-  duration?: number;
+  duration?: string;
 
   /** jwt过期时间 */
   expiration?: Date;
@@ -4786,10 +5058,10 @@ export interface UserContext {
   hostImpersonation?: boolean;
 
   /** 宿主用户ID */
-  hostUserId?: number;
+  hostUserId?: string;
 
   /**  */
-  id?: number;
+  id?: string;
 
   /**  */
   isAdmin?: boolean;
@@ -4798,7 +5070,7 @@ export interface UserContext {
   name?: string;
 
   /**  */
-  tenantId?: number;
+  tenantId?: string;
 }
 
 export interface UserEditDto {
@@ -4818,7 +5090,7 @@ export interface UserEditDto {
   emailAddress?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 姓名 */
   name?: string;
@@ -4830,13 +5102,13 @@ export interface UserEditDto {
   phoneNo?: string;
 
   /** 头像图片 */
-  profilePictureId?: number;
+  profilePictureId?: string;
 
   /** 下次登陆是否强制修改密码 */
   shouldChangePasswordOnNextLogin?: boolean;
 
   /** 签字图片 */
-  signaturePictureId?: number;
+  signaturePictureId?: string;
 
   /**  */
   surName?: string;
@@ -4853,7 +5125,7 @@ export interface UserForSelectDto {
   emailAddress?: string;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 姓名 */
   name?: string;
@@ -4888,7 +5160,7 @@ export interface UserListDto {
   emailConfirmed?: boolean;
 
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 是否被锁定 */
   lock?: boolean;
@@ -4903,7 +5175,7 @@ export interface UserListDto {
   profilePictureId?: string;
 
   /** 签字图片 */
-  signaturePictureId?: number;
+  signaturePictureId?: string;
 
   /** 姓名拼音 */
   surName?: string;
@@ -4920,7 +5192,7 @@ export interface UserListDto {
 
 export interface UserListForLoginDto {
   /** 唯一标识 */
-  id?: number;
+  id?: string;
 
   /** 姓名 */
   name?: string;
@@ -4948,7 +5220,7 @@ export interface UserOrgaDto {
   displayName?: string;
 
   /** id */
-  id?: number;
+  id?: string;
 
   /** 父组织机构id */
   parentId?: string;
@@ -4968,7 +5240,7 @@ export interface UserRoleDto {
   roleCode?: string;
 
   /** 角色id */
-  roleId?: number;
+  roleId?: string;
 
   /** 角色名称 */
   roleName?: string;
@@ -4976,15 +5248,15 @@ export interface UserRoleDto {
 
 export interface UserToOrganizationUnitInput {
   /** 组织机构id */
-  organizationUnitId?: number;
+  organizationUnitId?: string;
 
   /** 用户id */
-  userId?: number;
+  userId?: string;
 }
 
 export interface UsersToOrganizationUnitInput {
   /** 组织机构id */
-  organizationUnitId?: number;
+  organizationUnitId?: string;
 
   /** 用户id列表 */
   userIds?: number[];

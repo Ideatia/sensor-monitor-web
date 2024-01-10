@@ -31,7 +31,7 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.52.0",
     "@vueuse/core": "^10.5.0",
-    "axios": "^1.5.1",
+    "axios": "^1.6.3",
     "dayjs": "^1.11.10",
     "echarts": "^5.4.3",
     "exceljs": "^4.3.0",
@@ -79,7 +79,7 @@
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-order": "^6.0.3",
-    "swagger-axios-codegen": "^0.15.12",
+    "swagger-axios-codegen": "^0.16.5",
     "typescript": "^5.2.2",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.11",
