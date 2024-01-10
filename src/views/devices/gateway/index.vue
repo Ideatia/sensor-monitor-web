@@ -72,9 +72,9 @@
           }}
         </template>
         <template #state="{ record }">
-          <span v-if="record.state !== 'ONLINE'" class="circle"></span>
+          <span v-if="record.state !== '在线'" class="circle"></span>
           <span v-else class="circle pass"></span>
-          {{ record.state === 'ONLINE' ? '在线' : '未上线' }}
+          {{ record.state }}
         </template>
         <template #operations="{ record }">
           <a-button type="text" size="small" @click="onEdit(record)">
